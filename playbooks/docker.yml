@@ -1,2 +1,16 @@
 ---
+- name: 'DOCKER | apt key'
+  apt_key:
+    url: "{{ docker_key_url }}"
+    id:  "{{ docker_key_id }}"
+    state: present
 
+- name: 'DOCKER | Docker repository'
+  apt_repository:
+    repo:         "{{ docker_repo }}"
+    state:        present
+    update_cache: true
+
+- name: 'DOCKER | Software packages'
+  action: >
+    {{ ansible_pkg_mgr }} name={{ docker_packages }} state=present
