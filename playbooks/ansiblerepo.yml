@@ -1,2 +1,16 @@
 ---
+- name: 'ANSIBLE | Repository key'
+  apt_key:
+    keyserver: 'keyserver.ubuntu.com'
+    id:        "{{ ansible_repo_key }}"
 
+- name: 'ANSIBLE | Official PPA repository'
+  apt_repository:
+    repo:         "{{ ansible_repo }}"
+    state:        present
+    filename:     'ansible'
+    update_cache: yes
+
+- name: 'ANSIBLE | Software packages'
+  action: >
+    {{ ansible_pkg_mgr }} name={{ ansible_packages }} state=present
