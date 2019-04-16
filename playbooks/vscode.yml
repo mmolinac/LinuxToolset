@@ -1,0 +1,16 @@
+---
+- name: 'VSCODE | Microsoft GPG key'
+  apt_key:
+    url:   'https://packages.microsoft.com/keys/microsoft.asc'
+    state: present
+
+- name: 'VSCODE | Visual Studio Code repository'
+  apt_repository:
+    repo:         'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main'
+    state:        present
+    filename:     'vscode'
+    update_cache: yes
+
+- name: 'VSCODE | Visual Studio Code package'
+  action: >
+    {{ ansible_pkg_mgr }} name='code' state=present
