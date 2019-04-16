@@ -11,7 +11,7 @@
       when: (ansible_os_family not in toolset_supported_families)
     - name: 'Ensure https transport is in place'
       action: >
-        {{ ansible_pkg_mgr }} name='apt-transport-https' update_cache=yes cache_valid_time=300
+        {{ ansible_pkg_mgr }} name={{ common_packages }} update_cache=yes cache_valid_time=300
     - include: "{{ item }}"
       with_items:
         - 'vscode.yml'
