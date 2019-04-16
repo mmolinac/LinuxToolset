@@ -1,0 +1,17 @@
+---
+# General vars
+toolset_supported_families:
+  - 'Debian'
+
+# Visual Studio Code vars
+vscode_repo_key: 'https://packages.microsoft.com/keys/microsoft.asc'
+vscode_repo: 'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main'
+vscode_packages:
+  - 'code'
+
+# Virtualbox vars
+virtualbox_repo_key: 'https://www.virtualbox.org/download/oracle_vbox_2016.asc'
+virtualbox_repo: "deb http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib"
+virtualbox_branch: '6.0'
+virtualbox_packages:
+  - "virtualbox-{{ virtualbox_branch }}"
