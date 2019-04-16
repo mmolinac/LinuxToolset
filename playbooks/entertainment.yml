@@ -1,2 +1,4 @@
 ---
-
+- name: 'ENTERTAINMENT | A couple of music and game apps to amuse yourself'
+  action: >
+    {{ ansible_pkg_mgr }} name={{ entertainment_packages }} state=present

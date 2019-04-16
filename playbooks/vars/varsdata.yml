@@ -25,3 +25,46 @@ vagrant_repo_key: 'AD319E0F7CFFA38B4D9F6E55CE3F3DE92099F7A4'
 vagrant_repo: 'deb https://vagrant-deb.linestarve.com/ any main'
 vagrant_packages:
   - 'vagrant'
+
+# Entertainment
+entertainment_packages:
+  - 'audacious'
+  - 'armagetronad'
+
+# Ansible's official repo
+ansible_repo_key: '93C4A3FD7BB9C367'
+ansible_supported_dists:
+  - 'artful'
+  - 'bionic'
+  - 'cosmic'
+  - 'lucid'
+  - 'precise'
+  - 'saucy'
+  - 'trusty'
+  - 'utopic'
+  - 'vivid'
+  - 'wily'
+  - 'xenial'
+  - 'yakkety'
+  - 'zesty'
+
+ansible_branch_to_choose: "{{ 'trusty' if ansible_distribution_release not in ansible_supported_dists else ansible_distribution_release }}"
+ansible_repo: 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu {{ ansible_branch_to_choose }} main'
+ansible_packages:
+  - 'ansible'
+  - 'python3-google-auth'
+
+# Docker CE repository
+
+# Skype
+
+# Slack
+
+# Miscellaneous software
+misc_packages:
+  - 'git'
+  - 'vim'
+  - 'curl'
+  - 'sysstat'
+  - 'lsof'
+
