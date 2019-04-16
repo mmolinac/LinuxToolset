@@ -1,2 +1,16 @@
 ---
+- name: 'VAGRANT | Linestarve GPG key'
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: "{{ vagrant_repo_key }}"
 
+- name: 'VAGRANT | Linestarve repository'
+  apt_repository:
+    repo:         "{{ vagrant_repo }}"
+    state:        present
+    filename:     'wolfgang42-vagrant'
+    update_cache: yes
+
+- name: 'VAGRANT | Hashicorp Vagrant package'
+  action: >
+    {{ ansible_pkg_mgr }} name={{ vagrant_packages }} state=present

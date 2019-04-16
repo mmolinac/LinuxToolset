@@ -3,6 +3,10 @@
 toolset_supported_families:
   - 'Debian'
 
+common_packages:
+  - 'apt-transport-https'
+  - 'software-properties-common'
+
 # Visual Studio Code vars
 vscode_repo_key: 'https://packages.microsoft.com/keys/microsoft.asc'
 vscode_repo: 'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main'
@@ -15,3 +19,9 @@ virtualbox_repo: "deb http://download.virtualbox.org/virtualbox/debian {{ ansibl
 virtualbox_branch: '6.0'
 virtualbox_packages:
   - "virtualbox-{{ virtualbox_branch }}"
+
+# Vagrant repository, courtesy of https://vagrant-deb.linestarve.com/
+vagrant_repo_key: 'AD319E0F7CFFA38B4D9F6E55CE3F3DE92099F7A4'
+vagrant_repo: 'deb https://vagrant-deb.linestarve.com/ any main'
+vagrant_packages:
+  - 'vagrant'
