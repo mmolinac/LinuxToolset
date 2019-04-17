@@ -9,6 +9,8 @@ common_packages:
   - 'gnupg2'
   - 'curl'
   - 'ca-certificates'
+  - 'gdebi-core'
+  - 'wget'
 
 # Visual Studio Code vars
 vscode_repo_key: 'https://packages.microsoft.com/keys/microsoft.asc'
@@ -73,6 +75,9 @@ skype_packages:
   - 'skypeforlinux'
 
 # Slack
+slack_version: '3.3.8'
+slack_deb_url: "https://downloads.slack-edge.com/linux_releases/slack-desktop-{{ slack_version }}-amd64.deb"
+slack_download_path: "/var/cache/apt/archives/slack-desktop-{{ slack_version }}-amd64.deb"
 
 # Miscellaneous software
 misc_packages:
