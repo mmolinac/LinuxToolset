@@ -67,6 +67,10 @@ docker_compose_version: '1.24.0'
 docker_compose_path:    '/usr/local/bin/docker-compose'
 
 # Skype
+skype_key_url: 'https://repo.skype.com/data/SKYPE-GPG-KEY'
+skype_repo:    'deb [arch=amd64] https://repo.skype.com/deb stable main'
+skype_packages:
+  - 'skypeforlinux'
 
 # Slack
 

@@ -1,2 +1,16 @@
 ---
+- name: 'SKYPE | GPG key'
+  apt_key:
+    url:   "{{ skype_key_url }}"
+    state: present
 
+- name: 'SKYPE | Repository'
+  apt_repository:
+    repo:         "{{ skype_repo }}"
+    state:        present
+    filename:     'skype'
+    update_cache: yes
+
+- name: 'SKYPE | Software packages'
+  action: >
+    {{ ansible_pkg_mgr }} name={{ skype_packages }} state=present
