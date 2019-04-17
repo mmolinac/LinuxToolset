@@ -13,4 +13,4 @@
 
 - name: 'ANSIBLE | Software packages'
   action: >
-    {{ ansible_pkg_mgr }} name={{ ansible_packages }} state=present
+    {{ ansible_pkg_mgr }} name={{ ansible_packages }} state=latest
