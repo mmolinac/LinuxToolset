@@ -14,3 +14,24 @@
 - name: 'DOCKER | Software packages'
   action: >
     {{ ansible_pkg_mgr }} name={{ docker_packages }} state=present
+
+- name: 'DOCKER | docker compose'
+  get_url:
+    url:  "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64"
+    dest: "{{ docker_compose_path }}"
+    mode: 0755
+
+- name: 'DOCKER | Guessing user to add to the docker UNIX group'
+  become: false
+  local_action: command whoami
+  register: local_username
+
+- debug: var=local_username
+
+- name: 'DOCKER | Adding user to docker UNIX group'
+  user:
+    name:   "{{ item }}"
+    groups: docker
+    append: true
+  with_items: "{{ local_username }}"
+  when: (local_username != 'root')

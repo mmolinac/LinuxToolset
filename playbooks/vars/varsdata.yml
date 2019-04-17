@@ -6,6 +6,9 @@ toolset_supported_families:
 common_packages:
   - 'apt-transport-https'
   - 'software-properties-common'
+  - 'gnupg2'
+  - 'curl'
+  - 'ca-certificates'
 
 # Visual Studio Code vars
 vscode_repo_key: 'https://packages.microsoft.com/keys/microsoft.asc'
@@ -60,6 +63,8 @@ docker_key_id:  '9DC858229FC7DD38854AE2D88D81803C0EBFCD88'
 docker_repo:    "deb [arch=amd64] https://download.docker.com/linux/{{ ansible_distribution|lower }} {{ ansible_distribution_release }} stable"
 docker_packages:
   - 'docker-ce'
+docker_compose_version: '1.24.0'
+docker_compose_path:    '/usr/local/bin/docker-compose'
 
 # Skype
 
@@ -69,7 +74,6 @@ docker_packages:
 misc_packages:
   - 'git'
   - 'vim'
-  - 'curl'
   - 'sysstat'
   - 'lsof'
 
