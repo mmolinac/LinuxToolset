@@ -25,13 +25,11 @@
   become: false
   local_action: command whoami
   register: local_username
-
-- debug: var=local_username
+  changed_when: False
 
 - name: 'DOCKER | Adding user to docker UNIX group'
   user:
-    name:   "{{ item }}"
+    name:   "{{ local_username.stdout }}"
     groups: docker
     append: true
-  with_items: "{{ local_username }}"
-  when: (local_username != 'root')
+  when: (local_username.stdout != 'root')
