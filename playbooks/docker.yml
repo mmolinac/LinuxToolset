@@ -27,7 +27,7 @@
   register: local_username
   changed_when: False
 
-- name: 'DOCKER | Adding user to docker UNIX group'
+- name: 'DOCKER | Adding user to docker UNIX group. Will need to relogin.'
   user:
     name:   "{{ local_username.stdout }}"
     groups: docker
