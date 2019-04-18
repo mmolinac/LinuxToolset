@@ -85,4 +85,4 @@ misc_packages:
   - 'vim'
   - 'sysstat'
   - 'lsof'
-
+  - 'lvm2'
