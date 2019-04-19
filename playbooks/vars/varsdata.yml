@@ -79,6 +79,19 @@ slack_version: '3.3.8'
 slack_deb_url: "https://downloads.slack-edge.com/linux_releases/slack-desktop-{{ slack_version }}-amd64.deb"
 slack_download_path: "/var/cache/apt/archives/slack-desktop-{{ slack_version }}-amd64.deb"
 
+# Network tools
+network_packages:
+  - 'iptraf-ng'
+  - 'network-manager-openvpn'
+  - 'network-manager-pptp'
+  - 'network-manager-fortisslvpn'
+  - 'network-manager-iodine'
+  - 'network-manager-l2tp'
+  - 'network-manager-openconnect'
+  - 'network-manager-ssh'
+  - 'network-manager-strongswan'
+  - 'network-manager-vpnc'
+
 # Miscellaneous software
 misc_packages:
   - 'git'

@@ -21,5 +21,6 @@
         - 'docker.yml'
         - 'skype.yml'
         - 'slack.yml'
+        - 'network.yml'
         - 'misc.yml'
         - 'entertainment.yml'
