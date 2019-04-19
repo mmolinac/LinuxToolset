@@ -56,8 +56,18 @@ ansible_supported_dists:
 ansible_branch_to_choose: "{{ 'trusty' if ansible_distribution_release not in ansible_supported_dists else ansible_distribution_release }}"
 ansible_repo: 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu {{ ansible_branch_to_choose }} main'
 ansible_packages:
-  - 'ansible'
-  - 'python3-google-auth'
+  'Debian':
+    - 'python-pip'
+    - 'ansible'
+  'Ubuntu':
+    - 'ansible'
+    - 'python-pip'
+    - 'python3-google-auth'
+
+ansible_pip_modules:
+  'Debian':
+    - 'google-auth'
+  'Ubuntu': []
 
 # Docker CE repository
 docker_key_url: 'https://download.docker.com/linux/ubuntu/gpg'

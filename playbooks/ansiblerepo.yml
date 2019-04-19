@@ -13,4 +13,9 @@
 
 - name: 'ANSIBLE | Software packages'
   action: >
-    {{ ansible_pkg_mgr }} name={{ ansible_packages }} state=latest
+    {{ ansible_pkg_mgr }} name={{ ansible_packages[ansible_distribution] }} state=latest
+
+- name: 'ANSIBLE | Additional Python modules'
+  pip:
+    name: "{{ item }}"
+  with_items: "{{ ansible_pip_modules[ansible_distribution] }}"
