@@ -1,4 +1,4 @@
 ---
 - name: 'NETWORK | Several VPN and network utilities'
   action: >
-    {{ ansible_pkg_mgr }} name={{ network_packages }} state=present
+    {{ ansible_pkg_mgr }} name={{ network_packages[ansible_distribution] }} state=present
