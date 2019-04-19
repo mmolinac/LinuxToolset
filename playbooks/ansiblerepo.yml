@@ -17,5 +17,5 @@
 
 - name: 'ANSIBLE | Additional Python modules'
   pip:
-    name: "{{ item }}"
-  with_items: "{{ ansible_pip_modules[ansible_distribution] }}"
+    name: "{{ ansible_pip_modules[ansible_distribution] }}"
+  when: (ansible_pip_modules[ansible_distribution] | length > 0)
