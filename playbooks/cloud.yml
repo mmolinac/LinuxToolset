@@ -1,0 +1,9 @@
+---
+- name: 'CLOUD | Software packages'
+  action: >
+    {{ ansible_pkg_mgr }} name={{ cloud_packages[ansible_distribution] }} state=present
+
+- name: 'CLOUD | Additional Python modules'
+  pip:
+    name: "{{ cloud_pip_modules[ansible_distribution] }}"
+  when: (cloud_pip_modules[ansible_distribution] | length > 0)

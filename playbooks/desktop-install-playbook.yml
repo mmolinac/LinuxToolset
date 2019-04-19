@@ -19,6 +19,7 @@
         - 'vagrant.yml'
         - 'ansiblerepo.yml'
         - 'docker.yml'
+        - 'cloud.yml'
         - 'skype.yml'
         - 'slack.yml'
         - 'network.yml'

@@ -78,6 +78,21 @@ docker_packages:
 docker_compose_version: '1.24.0'
 docker_compose_path:    '/usr/local/bin/docker-compose'
 
+# Cloud management software
+cloud_packages:
+  'Debian':
+    - 'python-pip'
+    - 'awscli'
+  'Ubuntu':
+    - 'python-pip'
+    - 'awscli'
+
+cloud_pip_modules:
+  'Debian':
+    - 'SoftLayer'
+  'Ubuntu':
+    - 'SoftLayer'
+
 # Skype
 skype_key_url: 'https://repo.skype.com/data/SKYPE-GPG-KEY'
 skype_repo:    'deb [arch=amd64] https://repo.skype.com/deb stable main'
@@ -91,6 +106,17 @@ slack_download_path: "/var/cache/apt/archives/slack-desktop-{{ slack_version }}-
 
 # Network tools
 network_packages:
+  'Debian':
+    - 'iptraf-ng'
+    - 'network-manager-openvpn'
+    - 'network-manager-pptp'
+    - 'network-manager-iodine'
+    - 'network-manager-l2tp'
+    - 'network-manager-openconnect'
+    - 'network-manager-ssh'
+    - 'network-manager-strongswan'
+    - 'network-manager-vpnc'
+  'Ubuntu':
   - 'iptraf-ng'
   - 'network-manager-openvpn'
   - 'network-manager-pptp'
