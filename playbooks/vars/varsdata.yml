@@ -90,8 +90,12 @@ cloud_packages:
 cloud_pip_modules:
   'Debian':
     - 'SoftLayer'
+    - 'molecule'
+    - 'docker-py'
   'Ubuntu':
     - 'SoftLayer'
+    - 'molecule'
+    - 'docker-py'
 
 # Skype
 skype_key_url: 'https://repo.skype.com/data/SKYPE-GPG-KEY'
