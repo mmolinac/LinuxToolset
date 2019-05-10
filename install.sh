@@ -5,5 +5,6 @@
 echo "* Enter the SUDO password when required."
 chmod u+x $0
 echo "* Installing Ansible..."
+sudo apt-get -qq update
 sudo apt-get -qq install ansible
 ansible-playbook -K playbooks/desktop-install-playbook.yml
