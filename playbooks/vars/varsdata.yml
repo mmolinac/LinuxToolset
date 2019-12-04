@@ -138,3 +138,4 @@ misc_packages:
   - 'sysstat'
   - 'lsof'
   - 'lvm2'
+  - 'shellcheck'
