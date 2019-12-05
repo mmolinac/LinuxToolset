@@ -139,3 +139,4 @@ misc_packages:
   - 'lsof'
   - 'lvm2'
   - 'shellcheck'
+  - 'yamllint'
