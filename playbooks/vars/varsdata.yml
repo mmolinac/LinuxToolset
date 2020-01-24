@@ -71,12 +71,12 @@ ansible_pip_modules:
 
 # Docker CE repository
 docker_key_url: 'https://download.docker.com/linux/ubuntu/gpg'
-docker_key_id:  '9DC858229FC7DD38854AE2D88D81803C0EBFCD88'
-docker_repo:    "deb [arch=amd64] https://download.docker.com/linux/{{ ansible_distribution|lower }} {{ ansible_distribution_release }} stable"
+docker_key_id: '9DC858229FC7DD38854AE2D88D81803C0EBFCD88'
+docker_repo: "deb [arch=amd64] https://download.docker.com/linux/{{ ansible_distribution|lower }} {{ ansible_distribution_release }} stable"
 docker_packages:
   - 'docker-ce'
-docker_compose_version: '1.24.0'
-docker_compose_path:    '/usr/local/bin/docker-compose'
+docker_compose_version: '1.25.3'
+docker_compose_path: '/usr/local/bin/docker-compose'
 
 # Cloud management software
 cloud_packages:
@@ -99,7 +99,7 @@ cloud_pip_modules:
 
 # Skype
 skype_key_url: 'https://repo.skype.com/data/SKYPE-GPG-KEY'
-skype_repo:    'deb [arch=amd64] https://repo.skype.com/deb stable main'
+skype_repo: 'deb [arch=amd64] https://repo.skype.com/deb stable main'
 skype_packages:
   - 'skypeforlinux'
 
