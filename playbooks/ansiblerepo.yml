@@ -3,6 +3,7 @@
   apt_key:
     keyserver: 'keyserver.ubuntu.com'
     id:        "{{ ansible_repo_key }}"
+  when: ( ansible_distribution_release in ansible_supported_dists)
 
 - name: 'ANSIBLE | Official PPA repository'
   apt_repository:
@@ -10,6 +11,7 @@
     state:        present
     filename:     'ansible'
     update_cache: yes
+  when: ( ansible_distribution_release in ansible_supported_dists)
 
 - name: 'ANSIBLE | Software packages'
   action: >
