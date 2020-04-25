@@ -1,4 +1,5 @@
 ---
-- name: 'MISC | Several small utilities, editors, etc'
-  action: >
-    {{ ansible_pkg_mgr }} name={{ misc_packages }} state=present
+- name: MISC | Several small utilities, editors, etc
+  package:
+    name: "{{ misc_packages }}"
+    state: present

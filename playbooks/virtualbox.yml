@@ -1,16 +1,17 @@
 ---
-- name: 'VIRTUALBOX | Software repository key'
+- name: VIRTUALBOX | Software repository key
   apt_key:
-    url:   "{{ virtualbox_repo_key }}"
+    url: "{{ virtualbox_repo_key }}"
     state: present
 
-- name: 'VIRTUALBOX | Software repository'
+- name: VIRTUALBOX | Software repository
   apt_repository:
-    repo:         "{{ virtualbox_repo }}"
-    state:        present
-    filename:     'virtualbox'
+    repo: "{{ virtualbox_repo }}"
+    state: present
+    filename: virtualbox
     update_cache: yes
 
-- name: 'VIRTUALBOX | Software packages'
-  action: >
-    {{ ansible_pkg_mgr }} name={{ virtualbox_packages }} state=present
+- name: VIRTUALBOX | Software packages
+  package:
+    name: "{{ virtualbox_packages }}"
+    state: present

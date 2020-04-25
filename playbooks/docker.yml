@@ -1,35 +1,36 @@
 ---
-- name: 'DOCKER | apt key'
+- name: DOCKER | apt key
   apt_key:
     url: "{{ docker_key_url }}"
-    id:  "{{ docker_key_id }}"
+    id: "{{ docker_key_id }}"
     state: present
 
-- name: 'DOCKER | Docker repository'
+- name: DOCKER | Docker repository
   apt_repository:
-    repo:         "{{ docker_repo }}"
-    state:        present
+    repo: "{{ docker_repo }}"
+    state: present
     update_cache: true
 
-- name: 'DOCKER | Software packages'
-  action: >
-    {{ ansible_pkg_mgr }} name={{ docker_packages }} state=present
+- name: DOCKER | Software packages
+  package:
+    name: "{{ docker_packages }}"
+    state: present
 
-- name: 'DOCKER | docker compose'
+- name: DOCKER | docker compose
   get_url:
-    url:  "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64"
+    url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64"
     dest: "{{ docker_compose_path }}"
-    mode: 0755
+    mode: "0755"
 
-- name: 'DOCKER | Guessing user to add to the docker UNIX group'
+- name: DOCKER | Guessing user to add to the docker UNIX group
   become: false
   local_action: command whoami
   register: local_username
   changed_when: False
 
-- name: 'DOCKER | Adding user to docker UNIX group. Will need to relogin.'
+- name: DOCKER | Adding user to docker UNIX group. Will need to relogin.
   user:
-    name:   "{{ local_username.stdout }}"
+    name: "{{ local_username.stdout }}"
     groups: docker
     append: true
-  when: (local_username.stdout != 'root')
+  when: (local_username.stdout != "root")

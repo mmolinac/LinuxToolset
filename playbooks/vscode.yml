@@ -1,16 +1,17 @@
 ---
-- name: 'VSCODE | Microsoft GPG key'
+- name: VSCODE | Microsoft GPG key
   apt_key:
-    url:   "{{ vscode_repo_key }}"
+    url: "{{ vscode_repo_key }}"
     state: present
 
-- name: 'VSCODE | Visual Studio Code repository'
+- name: VSCODE | Visual Studio Code repository
   apt_repository:
-    repo:         "{{ vscode_repo }}"
-    state:        present
-    filename:     'vscode'
+    repo: "{{ vscode_repo }}"
+    state: present
+    filename: vscode
     update_cache: yes
 
-- name: 'VSCODE | Visual Studio Code package'
-  action: >
-    {{ ansible_pkg_mgr }} name={{ vscode_packages }} state=present
+- name: VSCODE | Visual Studio Code package
+  package:
+    name: "{{ vscode_packages }}"
+    state: present

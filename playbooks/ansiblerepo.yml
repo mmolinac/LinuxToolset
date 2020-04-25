@@ -1,23 +1,24 @@
 ---
-- name: 'ANSIBLE | Repository key'
+- name: ANSIBLE | Repository key
   apt_key:
-    keyserver: 'keyserver.ubuntu.com'
-    id:        "{{ ansible_repo_key }}"
-  when: ( ansible_distribution_release in ansible_supported_dists)
+    keyserver: keyserver.ubuntu.com
+    id: "{{ ansible_repo_key }}"
+  when: (ansible_distribution_release in ansible_supported_dists)
 
-- name: 'ANSIBLE | Official PPA repository'
+- name: ANSIBLE | Official PPA repository
   apt_repository:
-    repo:         "{{ ansible_repo }}"
-    state:        present
-    filename:     'ansible'
+    repo: "{{ ansible_repo }}"
+    state: present
+    filename: ansible
     update_cache: yes
-  when: ( ansible_distribution_release in ansible_supported_dists)
+  when: (ansible_distribution_release in ansible_supported_dists)
 
-- name: 'ANSIBLE | Software packages'
-  action: >
-    {{ ansible_pkg_mgr }} name={{ ansible_packages[ansible_distribution] }} state=latest
+- name: ANSIBLE | Software packages
+  package:
+    name: "{{ ansible_packages[ansible_distribution] }}"
+    state: latest
 
-- name: 'ANSIBLE | Additional Python modules'
+- name: ANSIBLE | Additional Python modules
   pip:
     name: "{{ ansible_pip_modules[ansible_distribution] }}"
   when: (ansible_pip_modules[ansible_distribution] | length > 0)

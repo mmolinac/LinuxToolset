@@ -1,144 +1,144 @@
 ---
 # General vars
 toolset_supported_families:
-  - 'Debian'
+  - Debian
 
 common_packages:
-  - 'apt-transport-https'
-  - 'software-properties-common'
-  - 'gnupg2'
-  - 'curl'
-  - 'ca-certificates'
-  - 'gdebi-core'
-  - 'wget'
+  - apt-transport-https
+  - software-properties-common
+  - gnupg2
+  - curl
+  - ca-certificates
+  - gdebi-core
+  - wget
 
 # Visual Studio Code vars
-vscode_repo_key: 'https://packages.microsoft.com/keys/microsoft.asc'
-vscode_repo: 'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main'
+vscode_repo_key: https://packages.microsoft.com/keys/microsoft.asc
+vscode_repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 vscode_packages:
-  - 'code'
+  - code
 
 # Virtualbox vars
-virtualbox_repo_key: 'https://www.virtualbox.org/download/oracle_vbox_2016.asc'
+virtualbox_repo_key: https://www.virtualbox.org/download/oracle_vbox_2016.asc
 virtualbox_repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release if ansible_distribution_release != 'focal' else 'eoan' }} contrib"
-virtualbox_branch: '6.1'
+virtualbox_branch: 6.1
 virtualbox_packages:
   - "virtualbox-{{ virtualbox_branch }}"
 
 # Vagrant repository, courtesy of https://vagrant-deb.linestarve.com/
-vagrant_repo_key: 'AD319E0F7CFFA38B4D9F6E55CE3F3DE92099F7A4'
-vagrant_repo: 'deb https://vagrant-deb.linestarve.com/ any main'
+vagrant_repo_key: AD319E0F7CFFA38B4D9F6E55CE3F3DE92099F7A4
+vagrant_repo: deb https://vagrant-deb.linestarve.com/ any main
 vagrant_packages:
-  - 'vagrant'
+  - vagrant
 
 # Entertainment
 entertainment_packages:
-  - 'audacious'
-  - 'armagetronad'
+  - audacious
+  - armagetronad
 
 # Ansible's official repo
-ansible_repo_key: '93C4A3FD7BB9C367'
+ansible_repo_key: 93C4A3FD7BB9C367
 ansible_supported_dists:
-  - 'artful'
-  - 'bionic'
-  - 'cosmic'
-  - 'disco'
-  - 'eoan'
-  - 'lucid'
-  - 'precise'
-  - 'saucy'
-  - 'trusty'
-  - 'utopic'
-  - 'vivid'
-  - 'wily'
-  - 'xenial'
-  - 'yakkety'
-  - 'zesty'
+  - artful
+  - bionic
+  - cosmic
+  - disco
+  - eoan
+  - lucid
+  - precise
+  - saucy
+  - trusty
+  - utopic
+  - vivid
+  - wily
+  - xenial
+  - yakkety
+  - zesty
 
 ansible_branch_to_choose: "{{ 'trusty' if ansible_distribution_release not in ansible_supported_dists else ansible_distribution_release }}"
-ansible_repo: 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu {{ ansible_branch_to_choose }} main'
+ansible_repo: "deb http://ppa.launchpad.net/ansible/ansible/ubuntu {{ ansible_branch_to_choose }} main"
 ansible_packages:
-  'Debian':
-    - 'python3-pip'
-    - 'ansible'
-  'Ubuntu':
-    - 'ansible'
-    - 'python3-pip'
-    - 'python3-google-auth'
+  Debian:
+    - python3-pip
+    - ansible
+  Ubuntu:
+    - ansible
+    - python3-pip
+    - python3-google-auth
 
 ansible_pip_modules:
-  'Debian':
-    - 'google-auth'
-  'Ubuntu': []
+  Debian:
+    - google-auth
+  Ubuntu: []
 
 # Docker CE repository
-docker_key_url: 'https://download.docker.com/linux/ubuntu/gpg'
-docker_key_id: '9DC858229FC7DD38854AE2D88D81803C0EBFCD88'
+docker_key_url: https://download.docker.com/linux/ubuntu/gpg
+docker_key_id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
 docker_repo: "deb [arch=amd64] https://download.docker.com/linux/{{ ansible_distribution|lower }} {{ ansible_distribution_release if ansible_distribution_release != 'focal' else 'eoan' }} stable"
 docker_packages:
-  - 'docker-ce'
-docker_compose_version: '1.25.5'
-docker_compose_path: '/usr/local/bin/docker-compose'
+  - docker-ce
+docker_compose_version: 1.25.5
+docker_compose_path: /usr/local/bin/docker-compose
 
 # Cloud management software
 cloud_packages:
-  'Debian':
-    - 'python3-pip'
-    - 'awscli'
-  'Ubuntu':
-    - 'python3-pip'
-    - 'awscli'
+  Debian:
+    - python3-pip
+    - awscli
+  Ubuntu:
+    - python3-pip
+    - awscli
 
 cloud_pip_modules:
-  'Debian':
-    - 'SoftLayer'
-    - 'molecule'
-    - 'docker-py'
-  'Ubuntu':
-    - 'SoftLayer'
-    - 'molecule'
-    - 'docker-py'
+  Debian:
+    - SoftLayer
+    - molecule
+    - docker-py
+  Ubuntu:
+    - SoftLayer
+    - molecule
+    - docker-py
 
 # Skype
-skype_key_url: 'https://repo.skype.com/data/SKYPE-GPG-KEY'
-skype_repo: 'deb [arch=amd64] https://repo.skype.com/deb stable main'
+skype_key_url: https://repo.skype.com/data/SKYPE-GPG-KEY
+skype_repo: deb [arch=amd64] https://repo.skype.com/deb stable main
 skype_packages:
-  - 'skypeforlinux'
+  - skypeforlinux
 
 # Slack
-slack_version: '4.4.2'
+slack_version: 4.4.2
 slack_deb_url: "https://downloads.slack-edge.com/linux_releases/slack-desktop-{{ slack_version }}-amd64.deb"
 slack_download_path: "/var/cache/apt/archives/slack-desktop-{{ slack_version }}-amd64.deb"
 
 # Network tools
 network_packages:
-  'Debian':
-    - 'iptraf-ng'
-    - 'network-manager-openvpn'
-    - 'network-manager-pptp'
-    - 'network-manager-iodine'
-    - 'network-manager-openconnect'
-    - 'network-manager-ssh'
-    - 'network-manager-strongswan'
-    - 'network-manager-vpnc'
-  'Ubuntu':
-  - 'iptraf-ng'
-  - 'network-manager-openvpn'
-  - 'network-manager-pptp'
-  - 'network-manager-fortisslvpn'
-  - 'network-manager-iodine'
-  - 'network-manager-l2tp'
-  - 'network-manager-openconnect'
-  - 'network-manager-ssh'
-  - 'network-manager-strongswan'
-  - 'network-manager-vpnc'
+  Debian:
+    - iptraf-ng
+    - network-manager-openvpn
+    - network-manager-pptp
+    - network-manager-iodine
+    - network-manager-openconnect
+    - network-manager-ssh
+    - network-manager-strongswan
+    - network-manager-vpnc
+  Ubuntu:
+  - iptraf-ng
+  - network-manager-openvpn
+  - network-manager-pptp
+  - network-manager-fortisslvpn
+  - network-manager-iodine
+  - network-manager-l2tp
+  - network-manager-openconnect
+  - network-manager-ssh
+  - network-manager-strongswan
+  - network-manager-vpnc
 
 # Miscellaneous software
 misc_packages:
-  - 'git'
-  - 'vim'
-  - 'sysstat'
-  - 'lsof'
-  - 'lvm2'
-  - 'shellcheck'
-  - 'yamllint'
+  - git
+  - vim
+  - sysstat
+  - lsof
+  - lvm2
+  - shellcheck
+  - yamllint

@@ -5,23 +5,25 @@
   connection: local
   become: yes
   tasks:
-    - include_vars: 'varsdata.yml'
+    - include_vars: varsdata.yml
     - fail:
-        msg: 'This OS family is not supported '
+        msg: This OS family is not supported 
       when: (ansible_os_family not in toolset_supported_families)
-    - name: 'Ensure https transport is in place'
-      action: >
-        {{ ansible_pkg_mgr }} name={{ common_packages }} update_cache=yes cache_valid_time=300
+    - name: Ensure https transport is in place
+      package:
+        name: "{{ common_packages }}"
+        update_cache: yes
+        cache_valid_time: 300
     - include: "{{ item }}"
       with_items:
-        - 'vscode.yml'
-        - 'virtualbox.yml'
-        - 'vagrant.yml'
-        - 'ansiblerepo.yml'
-        - 'docker.yml'
-        - 'cloud.yml'
-        - 'skype.yml'
-        - 'slack.yml'
-        - 'network.yml'
-        - 'misc.yml'
-        - 'entertainment.yml'
+        - vscode.yml
+        - virtualbox.yml
+        - vagrant.yml
+        - ansiblerepo.yml
+        - docker.yml
+        - cloud.yml
+        - skype.yml
+        - slack.yml
+        - network.yml
+        - misc.yml
+        - entertainment.yml
