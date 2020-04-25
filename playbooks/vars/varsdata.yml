@@ -20,8 +20,8 @@ vscode_packages:
 
 # Virtualbox vars
 virtualbox_repo_key: 'https://www.virtualbox.org/download/oracle_vbox_2016.asc'
-virtualbox_repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib"
-virtualbox_branch: '6.0'
+virtualbox_repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release if ansible_distribution_release != 'focal' else 'eoan' }} contrib"
+virtualbox_branch: '6.1'
 virtualbox_packages:
   - "virtualbox-{{ virtualbox_branch }}"
 
@@ -42,6 +42,8 @@ ansible_supported_dists:
   - 'artful'
   - 'bionic'
   - 'cosmic'
+  - 'disco'
+  - 'eoan'
   - 'lucid'
   - 'precise'
   - 'saucy'
@@ -57,11 +59,11 @@ ansible_branch_to_choose: "{{ 'trusty' if ansible_distribution_release not in an
 ansible_repo: 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu {{ ansible_branch_to_choose }} main'
 ansible_packages:
   'Debian':
-    - 'python-pip'
+    - 'python3-pip'
     - 'ansible'
   'Ubuntu':
     - 'ansible'
-    - 'python-pip'
+    - 'python3-pip'
     - 'python3-google-auth'
 
 ansible_pip_modules:
@@ -72,19 +74,19 @@ ansible_pip_modules:
 # Docker CE repository
 docker_key_url: 'https://download.docker.com/linux/ubuntu/gpg'
 docker_key_id: '9DC858229FC7DD38854AE2D88D81803C0EBFCD88'
-docker_repo: "deb [arch=amd64] https://download.docker.com/linux/{{ ansible_distribution|lower }} {{ ansible_distribution_release }} stable"
+docker_repo: "deb [arch=amd64] https://download.docker.com/linux/{{ ansible_distribution|lower }} {{ ansible_distribution_release if ansible_distribution_release != 'focal' else 'eoan' }} stable"
 docker_packages:
   - 'docker-ce'
-docker_compose_version: '1.25.3'
+docker_compose_version: '1.25.5'
 docker_compose_path: '/usr/local/bin/docker-compose'
 
 # Cloud management software
 cloud_packages:
   'Debian':
-    - 'python-pip'
+    - 'python3-pip'
     - 'awscli'
   'Ubuntu':
-    - 'python-pip'
+    - 'python3-pip'
     - 'awscli'
 
 cloud_pip_modules:
@@ -104,7 +106,7 @@ skype_packages:
   - 'skypeforlinux'
 
 # Slack
-slack_version: '3.3.8'
+slack_version: '4.4.2'
 slack_deb_url: "https://downloads.slack-edge.com/linux_releases/slack-desktop-{{ slack_version }}-amd64.deb"
 slack_download_path: "/var/cache/apt/archives/slack-desktop-{{ slack_version }}-amd64.deb"
 
