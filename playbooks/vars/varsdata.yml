@@ -60,7 +60,7 @@ ansible_repo: "deb http://ppa.launchpad.net/ansible/ansible/ubuntu {{ ansible_br
 ansible_packages:
   Debian:
     - python3-pip
-    - python2-pip
+    - python-pip
     - ansible
   Ubuntu:
     - ansible
