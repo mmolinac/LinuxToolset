@@ -8,3 +8,32 @@
   pip:
     name: "{{ cloud_pip_modules[ansible_distribution] }}"
   when: (cloud_pip_modules[ansible_distribution] | length > 0)
+
+- name: CLOUD | Google Cloud repository key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+  when:
+    - ansible_os_family == "Debian"
+
+- name: CLOUD | Google Cloud APT repository
+  apt_repository:
+    repo: "deb http://packages.cloud.google.com/apt {{ item }} main"
+    state: present
+    filename: google-cloud
+    update_cache: yes
+    mode: "0644"
+  with_items:
+    - "cloud-sdk-{{ ansible_distribution_release if ansible_distribution_release != 'focal' else 'bionic' }}"
+    - "google-compute-engine-{{ ansible_distribution_release if ansible_distribution_release != 'focal' else 'bionic' }}-stable"
+    - "google-cloud-packages-archive-keyring-{{ ansible_distribution_release if ansible_distribution_release != 'focal' else 'xenial' }}"
+  when:
+    - ansible_os_family == "Debian"
+
+# Packages needed.
+- name: CLOUD | Google Cloud SDK software packages
+  package:
+    name:
+      - google-cloud-packages-archive-keyring
+      - google-cloud-sdk
+    state: present
