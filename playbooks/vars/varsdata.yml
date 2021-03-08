@@ -121,17 +121,21 @@ network_packages:
     - network-manager-ssh
     - network-manager-strongswan
     - network-manager-vpnc
+    - rsync
+    - rclone
   Ubuntu:
-  - iptraf-ng
-  - network-manager-openvpn
-  - network-manager-pptp
-  - network-manager-fortisslvpn
-  - network-manager-iodine
-  - network-manager-l2tp
-  - network-manager-openconnect
-  - network-manager-ssh
-  - network-manager-strongswan
-  - network-manager-vpnc
+    - iptraf-ng
+    - network-manager-openvpn
+    - network-manager-pptp
+    - network-manager-fortisslvpn
+    - network-manager-iodine
+    - network-manager-l2tp
+    - network-manager-openconnect
+    - network-manager-ssh
+    - network-manager-strongswan
+    - network-manager-vpnc
+    - rsync
+    - rclone
 
 # Miscellaneous software
 misc_packages:
