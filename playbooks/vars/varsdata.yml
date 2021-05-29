@@ -25,9 +25,10 @@ virtualbox_branch: 6.1
 virtualbox_packages:
   - "virtualbox-{{ virtualbox_branch }}"
 
-# Vagrant repository, courtesy of https://vagrant-deb.linestarve.com/
-vagrant_repo_key: AD319E0F7CFFA38B4D9F6E55CE3F3DE92099F7A4
-vagrant_repo: deb https://vagrant-deb.linestarve.com/ any main
+# Vagrant repository, courtesy of HashiCorp
+vagrant_repo_key_url: https://apt.releases.hashicorp.com/gpg
+vagrant_old_repo: deb https://vagrant-deb.linestarve.com/ any main
+vagrant_repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
 vagrant_packages:
   - vagrant
 

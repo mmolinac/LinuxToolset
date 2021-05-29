@@ -1,14 +1,19 @@
 ---
-- name: VAGRANT | Linestarve GPG key
-  apt_key:
-    keyserver: keyserver.ubuntu.com
-    id: "{{ vagrant_repo_key }}"
+- name: VAGRANT | Remove Linestarve repository no longer works
+  apt_repository:
+    repo: "{{ vagrant_old_repo }}"
+    state: absent
+    filename: wolfgang42-vagrant
 
-- name: VAGRANT | Linestarve repository
+- name: VAGRANT | Official HashiCorp GPG key
+  apt_key:
+    url: "{{ vagrant_repo_key_url }}"
+
+- name: VAGRANT | HashiCorp repository
   apt_repository:
     repo: "{{ vagrant_repo }}"
     state: present
-    filename: wolfgang42-vagrant
+    filename: hashicorp-vagrant
     update_cache: yes
 
 - name: VAGRANT | Hashicorp Vagrant package
