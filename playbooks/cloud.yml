@@ -24,9 +24,9 @@
     update_cache: yes
     mode: "0644"
   with_items:
-    - "cloud-sdk-{{ ansible_distribution_release if ansible_distribution_release != 'focal' else 'bionic' }}"
-    - "google-compute-engine-{{ ansible_distribution_release if ansible_distribution_release != 'focal' else 'bionic' }}-stable"
-    - "google-cloud-packages-archive-keyring-{{ ansible_distribution_release if ansible_distribution_release != 'focal' else 'xenial' }}"
+    - "cloud-sdk-{{ ansible_distribution_release if ansible_distribution_release not in ['focal', 'impish'] else 'bionic' }}"
+    - "google-compute-engine-{{ ansible_distribution_release if ansible_distribution_release not in ['focal', 'impish'] else 'bionic' }}-stable"
+    - "google-cloud-packages-archive-keyring-{{ ansible_distribution_release if ansible_distribution_release not in ['focal', 'impish'] else 'xenial' }}"
   when:
     - ansible_os_family == "Debian"
 
