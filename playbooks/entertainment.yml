@@ -1,4 +1,19 @@
 ---
+- name: ENTERTAINMENT | Spotify repository key
+  apt_key:
+    url: "{{ spotify_gpg_key }}"
+    state: present
+  when:
+    - ansible_os_family == "Debian"
+
+- name: ENTERTAINMENT | Spotify repository
+  apt_repository:
+    repo: "{{ spotify_repo }}"
+    state: present
+    update_cache: true
+  when:
+    - ansible_os_family == "Debian"
+
 - name: ENTERTAINMENT | A couple of music and game apps to amuse yourself
   package:
     name: "{{ entertainment_packages }}"
