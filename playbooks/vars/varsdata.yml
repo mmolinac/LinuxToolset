@@ -20,7 +20,7 @@ vscode_packages:
 
 # Virtualbox vars
 virtualbox_repo_key: https://www.virtualbox.org/download/oracle_vbox_2016.asc
-virtualbox_repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release if ansible_distribution_release != 'focal' else 'eoan' }} contrib"
+virtualbox_repo: "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release if ansible_distribution_release not in ['impish','focal'] else 'eoan' }} contrib"
 virtualbox_branch: 6.1
 virtualbox_packages:
   - "virtualbox-{{ virtualbox_branch }}"
