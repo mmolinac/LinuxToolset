@@ -1,0 +1,17 @@
+---
+- name: GOOGLE CHROME | Google GPG key
+  apt_key:
+    url: "{{ chrome_repo_key }}"
+    state: present
+
+- name: GOOGLE CHROME | Google Chrome repository
+  apt_repository:
+    repo: "{{ chrome_repo }}"
+    state: present
+    filename: google-chrome
+    update_cache: yes
+
+- name: GOOGLE CHROME | Google Chrome package
+  package:
+    name: "{{ chrome_packages }}"
+    state: present
