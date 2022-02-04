@@ -25,12 +25,13 @@ virtualbox_branch: 6.1
 virtualbox_packages:
   - "virtualbox-{{ virtualbox_branch }}"
 
-# Vagrant repository, courtesy of HashiCorp
-vagrant_repo_key_url: https://apt.releases.hashicorp.com/gpg
+# HashiCorp repository, courtesy of HashiCorp
+hashicorp_repo_key_url: https://apt.releases.hashicorp.com/gpg
 vagrant_old_repo: deb https://vagrant-deb.linestarve.com/ any main
-vagrant_repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
-vagrant_packages:
+hashicorp_repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
+hashicorp_packages:
   - vagrant
+  - terraform
 
 # Entertainment
 spotify_gpg_key: https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg

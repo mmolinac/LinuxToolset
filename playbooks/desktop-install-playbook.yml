@@ -20,7 +20,7 @@
       with_items:
         - vscode.yml
         - virtualbox.yml
-        - vagrant.yml
+        - hashicorp.yml
         - ansiblerepo.yml
         - docker.yml
         - cloud.yml
