@@ -9,7 +9,6 @@ common_packages:
   - gnupg2
   - curl
   - ca-certificates
-  - gdebi-core
   - wget
 
 # Visual Studio Code vars
@@ -136,9 +135,10 @@ zoom_deps:
 zoom_package: https://zoom.us/client/latest/zoom_amd64.deb
 
 # Slack
-slack_version: 4.4.2
-slack_deb_url: "https://downloads.slack-edge.com/linux_releases/slack-desktop-{{ slack_version }}-amd64.deb"
-slack_download_path: "/var/cache/apt/archives/slack-desktop-{{ slack_version }}-amd64.deb"
+slack_repo_key: https://packagecloud.io/slacktechnologies/slack/gpgkey
+slack_repo: "deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main"
+slack_packages:
+  - slack-desktop
 
 # Network tools
 network_packages:
