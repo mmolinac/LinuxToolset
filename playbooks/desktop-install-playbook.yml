@@ -25,6 +25,7 @@
         - docker.yml
         - cloud.yml
         - skype.yml
+        - zoom.yml
         - slack.yml
         - network.yml
         - misc.yml

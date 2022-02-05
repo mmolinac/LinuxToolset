@@ -1,0 +1,9 @@
+---
+- name: ZOOM | Dependency packages
+  package:
+    name: "{{ zoom_deps[ansible_distribution_release] }}"
+    state: present
+
+- name: ZOOM | Software package
+  apt:
+    deb: "{{ zoom_package }}"
