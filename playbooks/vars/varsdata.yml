@@ -106,6 +106,16 @@ cloud_pip_modules:
     - molecule
     - docker-py
 
+google_cloud_pkgs:
+  - google-cloud-packages-archive-keyring
+  - google-cloud-sdk
+
+azure_cli_pkgs:
+  - azure-cli
+
+powershell_pkgs:
+  - powershell
+
 # Skype
 skype_key_url: https://repo.skype.com/data/SKYPE-GPG-KEY
 skype_repo: deb [arch=amd64] https://repo.skype.com/deb stable main
