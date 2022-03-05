@@ -1,7 +1,7 @@
 ---
 - name: VSCODE | Microsoft GPG key
   apt_key:
-    url: "{{ vscode_repo_key }}"
+    url: "{{ ms_repo_key }}"
     state: present
 
 - name: VSCODE | Visual Studio Code repository
