@@ -33,7 +33,42 @@
 # Packages needed.
 - name: CLOUD | Google Cloud SDK software packages
   package:
-    name:
-      - google-cloud-packages-archive-keyring
-      - google-cloud-sdk
+    name: "{{ google_cloud_pkgs }}"
+    state: present
+
+- name: CLOUD | Microsoft GPG key
+  apt_key:
+    url: "{{ ms_repo_key }}"
+    state: present
+
+- name: CLOUD | Azure CLI APT repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ {{ ansible_distribution_release }} main"
+    state: present
+    filename: azure-cli
+    update_cache: yes
+    mode: "0644"
+  when:
+    - ansible_os_family == "Debian"
+
+# Packages needed.
+- name: CLOUD | Azure CLI software packages
+  package:
+    name: "{{ azure_cli_pkgs }}"
+    state: present
+
+- name: CLOUD | Powershell APT repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-{{ ansible_distribution | lower }}-{{ ansible_distribution_release }}-prod {{ ansible_distribution_release }} main"
+    state: present
+    filename: microsoft
+    update_cache: yes
+    mode: "0644"
+  when:
+    - ansible_os_family == "Debian"
+
+# Packages needed.
+- name: CLOUD | Powershell software packages
+  package:
+    name: "{{ powershell_pkgs }}"
     state: present
