@@ -66,16 +66,15 @@ ansible_repo: "deb http://ppa.launchpad.net/ansible/ansible/ubuntu {{ ansible_br
 ansible_packages:
   Debian:
     - python3-pip
-    - python-pip
     - ansible
+    - python3-google-auth
   Ubuntu:
     - ansible
     - python3-pip
     - python3-google-auth
 
 ansible_pip_modules:
-  Debian:
-    - google-auth
+  Debian: []
   Ubuntu: []
 
 # Docker CE repository

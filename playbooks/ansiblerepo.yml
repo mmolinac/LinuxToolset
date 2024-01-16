@@ -5,7 +5,7 @@
     id: "{{ ansible_repo_key }}"
   when: (ansible_distribution_release in ansible_supported_dists)
 
-- name: ANSIBLE | Official PPA repository
+- name: ANSIBLE | Official PPA repository for older distros
   apt_repository:
     repo: "{{ ansible_repo }}"
     state: present
