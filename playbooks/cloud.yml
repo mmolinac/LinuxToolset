@@ -69,3 +69,9 @@
   package:
     name: "{{ powershell_pkgs }}"
     state: present
+
+- name: CLOUD | Digital Ocean doctl CLI utility
+  unarchive:
+    src: "{{ doctl_download_url }}"
+    dest: /usr/local/bin
+    remote_src: yes
