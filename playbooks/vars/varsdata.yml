@@ -161,6 +161,19 @@ zoom_deps:
     - libxcb-keysyms1
     - libxcb-xtest0
     - ibus
+  buster:
+    - libegl1-mesa
+    - libxcb-cursor0
+    - libxcb-xtest0
+  bullseye:
+    - libegl1-mesa
+    - libxcb-cursor0
+    - libxcb-xtest0
+  bookworm:
+    - libegl1-mesa
+    - libxcb-cursor0
+    - libxcb-xtest0
+
 zoom_package: https://zoom.us/client/latest/zoom_amd64.deb
 
 # Slack
