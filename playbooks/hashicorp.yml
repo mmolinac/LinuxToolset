@@ -16,7 +16,7 @@
     filename: hashicorp-vagrant
     update_cache: yes
 
-- name: HASHICORP | Hashicorp packages
+- name: HASHICORP | HashiCorp packages
   package:
     name: "{{ hashicorp_packages }}"
     state: present
