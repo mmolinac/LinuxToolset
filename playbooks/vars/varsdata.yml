@@ -90,16 +90,14 @@ docker_compose_path: /usr/local/bin/docker-compose
 cloud_packages:
   Debian:
     - python3-pip
+    - python3-softlayer
     - awscli
   Ubuntu:
     - python3-pip
     - awscli
 
 cloud_pip_modules:
-  Debian:
-    - SoftLayer
-    - molecule
-    - docker-py
+  Debian: []
   Ubuntu:
     - SoftLayer
     - molecule
