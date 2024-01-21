@@ -1,0 +1,8 @@
+---
+- name: NOTION | Install Snap store
+  package:
+    name: snapd
+
+- name: NOTION | Install Notion Snap app
+  snap:
+    name: notion-snap-reborn

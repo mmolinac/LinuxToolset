@@ -18,16 +18,18 @@
       loop_control:
         loop_var: inc_item
       with_items:
-        # - vscode.yml
-        # - virtualbox.yml
-        # - hashicorp.yml
-        # - ansiblerepo.yml
-        # - docker.yml
-        # - cloud.yml
-        # - skype.yml
-        # - zoom.yml
-        # - slack.yml
-        # - network.yml
+        - vscode.yml
+        - virtualbox.yml
+        - hashicorp.yml
+        - ansiblerepo.yml
+        - docker.yml
+        - cloud.yml
+        - skype.yml
+        - zoom.yml
+        - slack.yml
+        - network.yml
+        - passwordmgr.yml
+        - notion.yml
         - misc.yml
-        # - entertainment.yml
-        # - chrome.yml
+        - entertainment.yml
+        - chrome.yml
