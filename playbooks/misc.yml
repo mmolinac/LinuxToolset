@@ -3,3 +3,19 @@
   package:
     name: "{{ misc_packages }}"
     state: present
+
+- name: MISC | Get devices configuration
+  command: lsusb
+  register: usb_devices
+  changed_when: false
+
+- name: MISC | Install Gobi firmware loader
+  package:
+    name: gobi-loader
+  when: ("Qualcomm, Inc. Gobi 2000" in usb_devices.stdout)
+
+- name: MISC | Install Gobi firmware
+  unarchive:
+    src: files/gobi2000firmware.tar.gz
+    dest: /
+  when: ("Qualcomm, Inc. Gobi 2000" in usb_devices.stdout)
