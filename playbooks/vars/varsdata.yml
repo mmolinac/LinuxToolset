@@ -197,6 +197,7 @@ network_packages:
     - network-manager-vpnc
     - rsync
     - rclone
+    - torbrowser-launcher
   Ubuntu:
     - iptraf-ng
     - network-manager-openvpn
@@ -218,6 +219,7 @@ network_packages:
     - network-manager-vpnc-gnome
     - rsync
     - rclone
+    - torbrowser-launcher
 
 # Miscellaneous software
 misc_packages:
