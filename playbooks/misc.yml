@@ -19,3 +19,10 @@
     src: files/gobi2000firmware.tar.gz
     dest: /
   when: ("Qualcomm, Inc. Gobi 2000" in usb_devices.stdout)
+
+- name: MISC | Install fingerprint software
+  package:
+    name:
+      - fprintd
+      - libpam-fprintd
+  when: ("Fingerprint" in usb_devices.stdout)
