@@ -232,6 +232,7 @@ misc_packages:
   - yamllint
   - screen
   - tmux
+  - fwupd
 
 # Google Chrome vars
 chrome_repo_key: https://dl.google.com/linux/linux_signing_key.pub
